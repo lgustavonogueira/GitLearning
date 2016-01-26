@@ -79,3 +79,22 @@ try {
     Mage::printException($e);
     exit(1);
 }
+
+
+
+Step 2 - Remove stubs (Yosemite and earlier)
+--------------------------------------------
+When you run `git`, you might see this message:
+
+    'The "git" command requires the command line developer
+    tools. Would you like to install the tools now?"
+
+This is because OS X ships with stubs, and these stubs are taking
+precedence over /usr/local/bin.
+
+To resolve, run the following:
+
+    sudo mv /usr/bin/git /usr/bin/git-system
+
+This should not be a problem in OS X 10.11 (El Capitan), as
+/usr/local/bin takes precedence over /usr/bin
